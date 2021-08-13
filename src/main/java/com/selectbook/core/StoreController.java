@@ -1,20 +1,19 @@
 package com.selectbook.core;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.selectbook.dto.Document;
+import com.selectbook.core.dao.DocumentRepository;
+import com.selectbook.core.dto.DocumentEntity;
 
-import org.springframework.jdbc.core.RowMapper;
-
-@Controller
+@RestController
 public class StoreController {
-
+	
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	DocumentRepository documentRepository;
+
 
 	@RequestMapping("/trial")
 	@ResponseBody
@@ -23,19 +22,20 @@ public class StoreController {
 	}
 
 	@RequestMapping("/")
-	@ResponseBody
-	public String index() {
-		Document doc = new Document();
-		doc.getId();
-		/*System.out.println("index: ...");
-		String sqlin = "INSERT INTO users VALUES (4, 'John', 'Cusack');";
+	public DocumentEntity index() {
+		DocumentEntity doc = documentRepository.findById(2);
+		//Document doc = new Document();
+		//doc.getId();
+		System.out.println("index: ...");
+		/*String sqlin = "INSERT INTO users VALUES (4, 'John', 'Cusack');";
 
 		int rows = jdbcTemplate.update(sqlin);
 		if (rows > 0) {
 			System.out.println("Row inserted");
 		}*/
 
-		return "welcomw";
+		return doc;
 	}
+
 
 }

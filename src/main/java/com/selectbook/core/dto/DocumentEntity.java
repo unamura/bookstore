@@ -1,15 +1,20 @@
-package com.selectbook.dto;
+package com.selectbook.core.dto;
+
 
 import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
 @Entity
+@Table(name="document")
 @Data
-public class Document {
+public class DocumentEntity {
 	
 	@Id
 	private Long id;
@@ -30,6 +35,8 @@ public class Document {
 	private Integer num_pagine;
 	private String tipo_documento;
  	private Long id_uda;
+ 	
+ 	public DocumentEntity() {};
 	
 
 }
