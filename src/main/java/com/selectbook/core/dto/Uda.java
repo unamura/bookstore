@@ -1,9 +1,14 @@
 package com.selectbook.core.dto;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 
@@ -19,7 +24,7 @@ public class Uda {
 	private String prog_campione;
 	private Timestamp data_indicizzazione;
 	private String scatola;
-	//Foreign key
-	private Long id_run;
-
+	@ManyToOne(optional=false) 
+    @JoinColumn(name="id_run", nullable=false, updatable=false)
+	private Run run;
 }

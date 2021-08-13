@@ -2,9 +2,12 @@ package com.selectbook.core.dto;
 
 
 import java.sql.Timestamp;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -34,9 +37,8 @@ public class Document {
 	private String indice_5;
 	private Integer num_pagine;
 	private String tipo_documento;
- 	private Long id_uda;
- 	
- 	public Document() {};
-	
+	@ManyToOne(optional=false) 
+    @JoinColumn(name="id_uda", nullable=false, updatable=false)
+ 	private Uda uda;
 
 }

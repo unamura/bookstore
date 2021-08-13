@@ -1,9 +1,11 @@
 package com.selectbook.core.dto;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 
@@ -13,6 +15,8 @@ public class Run {
 	
 	@Id
 	private Integer id;
+	//@OneToMany
+	//private Set<Uda> uda;
 	private String stato;
 	private String lavorazione;
 	private String centro_competenza;
