@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.selectbook.core.dao.DocumentRepository;
-import com.selectbook.core.dto.DocumentEntity;
+import com.selectbook.core.dto.Document;
 
 @RestController
 public class StoreController {
@@ -22,8 +22,8 @@ public class StoreController {
 	}
 
 	@RequestMapping("/")
-	public DocumentEntity index() {
-		DocumentEntity doc = documentRepository.findById(2);
+	public Document index() {
+		Document doc = documentRepository.findById(2);
 		//Document doc = new Document();
 		//doc.getId();
 		System.out.println("index: ...");

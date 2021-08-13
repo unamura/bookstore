@@ -14,7 +14,7 @@ import lombok.Data;
 @Entity
 @Table(name="document")
 @Data
-public class DocumentEntity {
+public class Document {
 	
 	@Id
 	private Long id;
@@ -36,7 +36,7 @@ public class DocumentEntity {
 	private String tipo_documento;
  	private Long id_uda;
  	
- 	public DocumentEntity() {};
+ 	public Document() {};
 	
 
 }

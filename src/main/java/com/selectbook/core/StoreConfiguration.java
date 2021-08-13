@@ -3,13 +3,13 @@ package com.selectbook.core;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.selectbook.core.dto.DocumentEntity;
+import com.selectbook.core.dto.Document;
 
 @Configuration
 public class StoreConfiguration {
 
 	@Bean
-	public DocumentEntity getDocument() {
-		return new DocumentEntity();
+	public Document getDocument() {
+		return new Document();
 	}
 }
