@@ -1,9 +1,10 @@
 package com.selectbook.core.dto;
 
 import java.sql.Timestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -24,6 +25,7 @@ public class UdaSupervisore {
 	private Timestamp firma;
 	//FK
 	private Long id_doc_scartato;
-	//FK
-	private Long id_uda;
+	@OneToOne
+	@JoinColumn(name="id_uda")
+	private Uda id_uda;
 }
