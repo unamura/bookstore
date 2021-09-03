@@ -5,11 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.selectbook.core.dao.DocumentRepository;
@@ -19,9 +17,7 @@ import com.selectbook.core.dto.Run;
 import com.selectbook.core.dto.UdaNotaio;
 import com.selectbook.core.dto.UdaSupervisore;
 
-//@RestController
-@Controller
-//@Component
+@RestController
 public class StoreController {
 
 	@Autowired
@@ -29,15 +25,16 @@ public class StoreController {
 
 	@Resource
 	UdaSupervisoreRepository udaSupervisoreRepository;
+	
+	@Resource
+	UdaSupervisoreRepository udaNotaioRepository;
 
 	@RequestMapping("/trial")
-	@ResponseBody
 	public String trialPage() {
 		return "Here we are";
 	}
 
 	@RequestMapping("/document/id")
-	@ResponseBody
 	public Document index() {
 		Document doc = documentRepository.findById(2);
 
@@ -47,7 +44,6 @@ public class StoreController {
 	}
 	
 	@RequestMapping("/document/id/fields")
-	@ResponseBody
 	public String getDocumentFields() {
 		Document doc = documentRepository.findById(2);
 
@@ -87,11 +83,11 @@ public class StoreController {
 		return udaSupervisoreFromId;
 	}
 
-	@RequestMapping("/notaio")
-	public UdaNotaio retrieveUdaNotaio() {
-		UdaNotaio udaNotaioFromId = udaSupervisoreRepository.findUdaNotaioById(2);
+	@RequestMapping("/notaio/{notaioId}")
+	public UdaNotaio retrieveUdaNotaio(@PathVariable long notaioId) {
+		UdaNotaio udaNotaioFromId = udaNotaioRepository.findUdaNotaioById(notaioId);
 		
-		System.out.println("/notaio");
+		System.out.println("/notaio/" + notaioId);
 		return udaNotaioFromId;
 	}
 

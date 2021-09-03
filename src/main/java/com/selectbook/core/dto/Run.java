@@ -1,11 +1,19 @@
 package com.selectbook.core.dto;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import lombok.Data;
 
-@Entity
+@Entity(name = "Run")
+@Table(name = "run")
 @Data
 public class Run {
 	
@@ -26,4 +34,5 @@ public class Run {
 	private String tipo_demat;
 	private String protocollo;
 	private String z_cliente;
+
 }

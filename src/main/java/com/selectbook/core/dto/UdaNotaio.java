@@ -26,7 +26,7 @@ public class UdaNotaio {
 	private Timestamp firma;
 	// Foreign key
 	private Long id_doc_scartato;
-	@OneToOne
+	@OneToOne(optional = false)
 	@JoinColumn(name = "id_uda")
 	private Uda id_uda;
 

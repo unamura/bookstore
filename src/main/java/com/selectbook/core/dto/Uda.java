@@ -1,18 +1,18 @@
 package com.selectbook.core.dto;
 
 import java.sql.Timestamp;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 @Entity
+@Table(name = "uda")
 @Data
 public class Uda {
 	@Id
@@ -24,7 +24,14 @@ public class Uda {
 	private String prog_campione;
 	private Timestamp data_indicizzazione;
 	private String scatola;
-	@ManyToOne(optional=false) 
+	@ManyToOne(optional=false)
     @JoinColumn(name="id_run", nullable=false, updatable=false)
 	private Run run;
+	//private Run getRun() {return run;}
+	/*
+	@OneToMany(mappedBy = "uda")
+	private List<Document> documentList = new ArrayList<Document>();
+	*/
+	//@OneToOne(mappedBy = "id_uda")
+	//private UdaNotaio udaNotaio;
 }
