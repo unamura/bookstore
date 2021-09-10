@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -64,7 +63,7 @@ public class StoreController {
 	public Document getDocumentByIdUri(@PathVariable long documentId) {
 		Document doc = documentRepository.findById(documentId);
 
-		System.out.println("docuemtn/id/" + documentId);
+		System.out.println("document/id/" + documentId);
 		return doc;
 	}
 

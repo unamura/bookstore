@@ -3,7 +3,6 @@ package com.selectbook.core.dto;
 
 import java.sql.Timestamp;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -37,5 +36,4 @@ public class Document {
 	@ManyToOne(optional=false)
     @JoinColumn(name="id_uda", nullable=false, updatable=false)
  	private Uda uda;
-
 }
